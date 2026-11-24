@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore my Pokemon card collection, track your own cards, and mark your favorites. A personal card tracker for Pokémon fans.">
+    <title>Pokémon Card Collection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header" id="home">
+        <div class="header-inner">
+            <a class="brand" href="#home" aria-label="Pokémon Card Collection home">
+                <span class="brand-ball" aria-hidden="true">●</span>
+                <span>Poké<span class="brand-accent">Collection</span></span>
+            </a>
+            <nav aria-label="Main navigation">
+                <a href="#collection">My Cards</a>
+                <a href="#favorites">Favorites</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#pokemon-video">Video</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">YOUR PERSONAL CARD TRACKER</p>
+                <h1>Gotta Catch<br><span>them all!</span></h1>
+                <p class="hero-description">
+                    Keep your Pokémon cards organized in one place. Track what you own,
+                    mark your favorites, and keep building your collection.
+                </p>
+                <a class="button button-primary" href="#collection">Explore my collection</a>
+            </div>
+            <div class="hero-art" aria-label="Poké Ball illustration" role="img">
+                <div class="pokeball">
+                    <div class="pokeball-center"></div>
+                </div>
+                <span class="spark spark-one">✦</span>
+                <span class="spark spark-two">✧</span>
+                <span class="spark spark-three">✦</span>
+            </div>
+        </section>
+
+        <section class="stats" aria-label="Collection summary">
+            <article class="stat-box">
+                <span class="stat-number" id="total-count">3</span>
+                <span class="stat-label">Cards listed</span>
+            </article>
+            <article class="stat-box">
+                <span class="stat-number" id="favorite-count">1</span>
+                <span class="stat-label">Favorites</span>
+            </article>
+            <article class="stat-box">
+                <span class="stat-number" id="unique-count">3</span>
+                <span class="stat-label">Different Pokémon</span>
+            </article>
+        </section>
+
+        <section class="section collection-section" id="collection">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">THE CARD BINDER</p>
+                    <h2>My Collection</h2>
+                    <p class="section-intro">A few cards to get your collection started.</p>
+                </div>
+                <label class="search-label">
+                    <span class="visually-hidden">Search cards</span>
+                    <input type="search" id="card-search" placeholder="Search cards..." autocomplete="off">
+                </label>
+            </div>
+
+            <div class="filter-row" role="group" aria-label="Filter cards">
+                <button class="filter-button active" type="button" data-filter="all">All cards</button>
+                <button class="filter-button" type="button" data-filter="favorite">Favorites</button>
+                <button class="filter-button" type="button" data-filter="Electric">Electric</button>
+                <button class="filter-button" type="button" data-filter="Fire">Fire</button>
+                <button class="filter-button" type="button" data-filter="Water">Water</button>
+            </div>
+
+            <div class="card-grid" id="card-grid">
+                <article class="pokemon-card" data-name="Pikachu" data-type="Electric" data-favorite="true">
+                    <div class="card-art electric-art">
+                        <span class="card-number">#025</span>
+                        <span class="pokemon-emoji" aria-hidden="true">⚡</span>
+                        <span class="type-pill">Electric</span>
+                    </div>
+                    <div class="card-details">
+                        <div class="card-title-row"><h3>Pikachu</h3><span class="rarity">★</span></div>
+                        <p class="card-meta">Electric type · Basic</p>
+                        <div class="card-bottom"><span class="owned-label">Owned: <strong>1</strong></span><button class="favorite-button is-favorite" type="button" aria-pressed="true" aria-label="Remove Pikachu from favorites">♥</button></div>
+                    </div>
+                </article>
+
+                <article class="pokemon-card" data-name="Charizard" data-type="Fire" data-favorite="false">
+                    <div class="card-art fire-art">
+                        <span class="card-number">#006</span>
+                        <span class="pokemon-emoji" aria-hidden="true">🔥</span>
+                        <span class="type-pill">Fire</span>
+                    </div>
+                    <div class="card-details">
+                        <div class="card-title-row"><h3>Charizard</h3><span class="rarity">★★</span></div>
+                        <p class="card-meta">Fire type · Stage 2</p>
+                        <div class="card-bottom"><span class="owned-label">Owned: <strong>1</strong></span><button class="favorite-button" type="button" aria-pressed="false" aria-label="Add Charizard to favorites">♡</button></div>
+                    </div>
+                </article>
+
+                <article class="pokemon-card" data-name="Squirtle" data-type="Water" data-favorite="false">
+                    <div class="card-art water-art">
+                        <span class="card-number">#007</span>
+                        <span class="pokemon-emoji" aria-hidden="true">💧</span>
+                        <span class="type-pill">Water</span>
+                    </div>
+                    <div class="card-details">
+                        <div class="card-title-row"><h3>Squirtle</h3><span class="rarity">★</span></div>
+                        <p class="card-meta">Water type · Basic</p>
+                        <div class="card-bottom"><span class="owned-label">Owned: <strong>1</strong></span><button class="favorite-button" type="button" aria-pressed="false" aria-label="Add Squirtle to favorites">♡</button></div>
+                    </div>
+                </article>
+            </div>
+            <p class="empty-message" id="empty-message" hidden>No cards match your search.</p>
+        </section>
+
+
+        <section class="section table-section" id="card-details">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">COLLECTION DETAILS</p>
+                    <h2>Card Inventory</h2>
+                    <p class="section-intro">A quick look at the cards currently listed in my collection.</p>
+                </div>
+            </div>
+            <div class="table-scroll">
+                <table class="collection-table">
+                    <caption>Pokémon cards in my sample collection</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Pokémon</th>
+                            <th scope="col">Card number</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Rarity</th>
+                            <th scope="col">Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><th scope="row">Pikachu</th><td>#025</td><td>Electric</td><td>★</td><td>1</td></tr>
+                        <tr><th scope="row">Charizard</th><td>#006</td><td>Fire</td><td>★★</td><td>1</td></tr>
+                        <tr><th scope="row">Squirtle</th><td>#007</td><td>Water</td><td>★</td><td>1</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+
+        <section class="section video-section" id="pokemon-video">
+            <div class="video-copy">
+                <p class="eyebrow">A LOOK INSIDE THE COLLECTION</p>
+                <h2>Pokémon Video</h2>
+                <p class="section-intro">Watch a short video about Pokémon or take a closer look at my card collection.</p>
+            </div>
+            <div class="video-frame">
+                <div class="video-frame">
+            <iframe
+
+                 src="https://www.youtube.com/embed/44TsW_F07w0"
+                title="Pokemon Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
+            </div>
+        </section>
+
+        <section class="section contact-section" id="contact">
+            <div class="contact-copy">
+                <p class="eyebrow">LET'S CONNECT</p>
+                <h2>Contact Me</h2>
+                <p class="section-intro">Have a Pokémon card collecting tip or a question about the website? Send me a message using the form.</p>
+            </div>
+            <form class="contact-form" action="#" method="get">
+                <div class="form-field">
+                    <label for="contact-name">Name</label>
+                    <input type="text" id="contact-name" name="name" placeholder="Enter your name"
+                           autocomplete="name" minlength="2" required>
+                </div>
+                <div class="form-field">
+                    <label for="contact-email">Email address</label>
+                    <input type="email" id="contact-email" name="email" placeholder="you@example.com"
+                           autocomplete="email" required>
+                </div>
+                <div class="form-field">
+                    <label for="contact-phone">Phone number</label>
+                    <input type="tel" id="contact-phone" name="phone" placeholder="555-123-4567"
+                           autocomplete="tel" pattern="[0-9() +.-]{7,}"
+                           title="Enter at least 7 characters using numbers, spaces, parentheses, plus signs, periods, or hyphens.">
+                </div>
+                <div class="form-field">
+                    <label for="contact-message">Message</label>
+                    <textarea id="contact-message" name="message" rows="5"
+                              placeholder="Write your message here..." minlength="10" required></textarea>
+                </div>
+                <button class="button button-primary submit-button" type="submit">Send Message</button>
+                <p class="form-note">Name, email, and message are required. Phone number is optional.</p>
+            </form>
+        </section>
+
+        <section class="section favorites-section" id="favorites">
+            <div>
+                <p class="eyebrow">YOUR TOP PICKS</p>
+                <h2>Favorites</h2>
+                <p class="section-intro">Use the heart button on a card to add or remove it from your favorites.</p>
+            </div>
+            <div class="favorite-note">
+                <span class="favorite-heart" aria-hidden="true">♥</span>
+                <p><strong>Your collection, your way.</strong><br>Keep track of the cards you love most.</p>
+            </div>
+        </section>
+
+        <section class="section about-section" id="about">
+            <div class="about-icon" aria-hidden="true">◎</div>
+            <div>
+                <p class="eyebrow">ABOUT THIS PROJECT</p>
+                <h2>Beautiful website for Pokemon fans</h2>
+                <p>
+                    This Project was for pokemon lovers to explore there own collection and favorite there pokemon cards. I shouldve made it for all TCG lovers but my passion was for pokemon but I hope I can build a website for every trading card game.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Jose Escobedo · <span id="current-year">2026</span></p>
+        <a href="#home">Back to top ↑</a>
+    </footer>
+
+    <script>
+        const grid = document.querySelector("#card-grid");
+        const searchInput = document.querySelector("#card-search");
+        const filterButtons = document.querySelectorAll(".filter-button");
+        const emptyMessage = document.querySelector("#empty-message");
+        let currentFilter = "all";
+
+        function updateStats() {
+            const cards = [...grid.querySelectorAll(".pokemon-card")];
+            document.querySelector("#total-count").textContent = cards.length;
+            document.querySelector("#favorite-count").textContent =
+                cards.filter(card => card.dataset.favorite === "true").length;
+            document.querySelector("#unique-count").textContent =
+                new Set(cards.map(card => card.dataset.name)).size;
+        }
+
+        function applyFilters() {
+            const search = searchInput.value.trim().toLowerCase();
+            let visibleCount = 0;
+
+            grid.querySelectorAll(".pokemon-card").forEach(card => {
+                const matchesSearch = card.dataset.name.toLowerCase().includes(search);
+                const matchesFilter =
+                    currentFilter === "all" ||
+                    (currentFilter === "favorite" && card.dataset.favorite === "true") ||
+                    card.dataset.type === currentFilter;
+
+                const show = matchesSearch && matchesFilter;
+                card.hidden = !show;
+                if (show) visibleCount++;
+            });
+
+            emptyMessage.hidden = visibleCount !== 0;
+        }
+
+        searchInput.addEventListener("input", applyFilters);
+
+        filterButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                currentFilter = button.dataset.filter;
+                filterButtons.forEach(item => item.classList.toggle("active", item === button));
+                applyFilters();
+            });
+        });
+
+        grid.querySelectorAll(".favorite-button").forEach(button => {
+            button.addEventListener("click", () => {
+                const card = button.closest(".pokemon-card");
+                const isFavorite = card.dataset.favorite !== "true";
+                card.dataset.favorite = String(isFavorite);
+                button.classList.toggle("is-favorite", isFavorite);
+                button.textContent = isFavorite ? "♥" : "♡";
+                button.setAttribute("aria-pressed", String(isFavorite));
+                button.setAttribute(
+                    "aria-label",
+                    `${isFavorite ? "Remove" : "Add"} ${card.dataset.name} ${isFavorite ? "from" : "to"} favorites`
+                );
+                updateStats();
+                applyFilters();
+            });
+        });
+
+        document.querySelector("#current-year").textContent = new Date().getFullYear();
+        updateStats();
+    </script>
+</body>
+</html>
